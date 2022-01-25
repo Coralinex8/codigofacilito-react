@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import react,{useState} from 'react';
+import logo from './logo.svg'; 
+import {Surprise} from './components/Surprise'
 import './App.css';
+import React from 'react';
+import Button from './components/Button';
+
+
+const themes = {
+  'dark':{
+    backgroundColor:'black',
+    color:'white'
+  },
+  'light':{
+    backgroundColor:'white',
+    color:'black'
+  }
+}
+
+export const ThemeContext = React.createContext();
+
 
 function App() {
+
+  const [theme, setTheme] = useState(Themes.dark);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ThemeContext.Provider value={ themes.dark }>
+        <button />
+      </ThemeContext.Provider>
     </div>
   );
 }
